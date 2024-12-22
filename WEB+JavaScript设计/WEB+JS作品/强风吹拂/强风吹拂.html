@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				/* user-select: none; */
+			}
+
+
+			body {
+				/* width: 1515px; */
+				width: 1690px;
+				backgound-color: whitesmoke;
+				font-family: "mocrosoft yahei";
+				margin: 0 auto;
+			}
+
+			#logo {
+				width: 50px;
+				height: 50px;
+				border: 0.5px solid white;
+				border-radius: 50%;
+			}
+
+			#logo:hover {
+				transform: scale(1.1);
+				transition: 1s;
+				overflow: hidden;
+				opacity: 0.98;
+			}
+
+			#logoo {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+
+			.li1,
+			#logo {
+				font-size: 30px;
+				display: inline-block;
+				vertical-align: bottom;
+			}
+			
+			#book1{
+				border-right: solid 1.5px #f2b9b2;
+				width: 385px;
+			}
+			.li1 {
+				border-left: solid 1.5px #f2b9b2;
+				line-height: 50px;
+				text-align: center;
+				letter-spacing: 0.6em;
+				width: 380px;
+				cursor: pointer;
+			}
+			#loginBtn{
+				background-color: rgba(81, 196, 211, 0.1);
+				border-radius: 6px;
+				color: rgba(4, 144, 185, 1);;
+				border: solid 0px /* rgba(115, 124, 123, 0.8) */ #0eb0c9;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				width: 80px;
+				font-size: 22px;
+				cursor: pointer;
+				text-align: center;
+				letter-spacing: 0.2em;
+			}
+			/* 登录模态窗口样式 */
+			.modal {
+			  display: none;
+			  /* position: fixed; */
+			  z-index: 1;
+			  left: 0;
+			  top: 0;
+			  width: 100%;
+			  height: 100%;
+			  overflow: auto;
+			  background-color: rgb(0,0,0);
+			  background-color: rgba(0,0,0,0.4);
+			  padding-top: 60px;
+			}
+			
+			.modal-content {
+			  background-color: #fefefe;
+			  margin: 5% auto;
+			  padding: 20px;
+			  border: 1px solid #888;
+			  width: 300px;
+			}
+			
+			.close {
+			  color: #aaa;
+			  float: right;
+			  font-size: 28px;
+			  font-weight: bold;
+			}
+			
+			.close:hover,
+			.close:focus {
+			  color: black;
+			  text-decoration: none;
+			  cursor: pointer;
+			}
+			
+			#loginBtn:hover{
+				font-size: 24px;
+			}
+			.li2:hover {
+				color: rgba(4, 144, 185, 0.9);
+				font-size: 28px;
+				/* font-weight: bold; */
+			}
+
+			.li2 {
+				/* color: #f1908c; */
+				color: rgba(4, 144, 185, 1);
+			}
+
+			#back1 {
+				width: 100%;
+				height: 100%;
+			}
+
+			#bk4 {
+				width: 100%;
+				height: 800px;
+				background: url(../photo/first.JPG);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			
+			/* 幻灯片部分 */
+			#content{
+				/* width: 800px; */
+				width: 1200px;
+				/* height: 600px; */
+				height: 800px;
+				position: relative;
+				/* border: 10px solid gray; */
+				overflow: hidden;
+				margin-top: 60px;
+				margin-left: 245px;
+			}
+			#performance{
+				width: 7200px;
+				position: absolute;
+				transition: 1s;
+				left: 0;
+			}
+			#performance li{
+				/* width: 800px; */
+				width: 1200px;
+				/* height: 600px; */
+				height: 690px;
+				list-style: none;
+				float: left;
+			}
+			#performance li img{
+				width: 100%;
+				height: 100%;
+				opacity: 0.98;
+			}
+			#left1,#right1{
+				position: absolute;
+				width: 80px;
+				line-height: 800px;
+				font-size: 80px;
+				color: rgba(255, 255, 255, 0.5);
+				user-select: none;
+			}
+			#right1{
+				right: 0px;
+			}
+			#right1:hover span,
+			#left1:hover span{
+				color: #29b7cb;
+				cursor: pointer;
+				transition: 1s;
+			}
+			
+			main {
+				width: 100%;
+			}
+
+			#left {
+				/* width: 250px; */
+				width: 420px;
+				/* height: 625px; */
+				height: 630px;
+				display: inline-block;
+				margin-left: 10px;
+				margin-top: 10px;
+				vertical-align: top;
+			}
+
+			#line1 {
+				margin: 10px;
+			}
+
+			#line2 {
+				margin: 10px;
+			}
+
+			#im1 {
+				width: 100%;
+				height: 100%;
+			}
+
+			#right {
+				width: 1250px;
+				height: 810px;
+				display: inline-block;
+				margin-right: 5px;
+			}
+
+			.box {
+				border-radius: 2px;
+				/* width: 202px; */
+				width: 230px;
+				height: 304.5px;
+				display: inline-block;
+				background-color: white;
+				margin: 5px;
+				margin-left: 6px;
+			}
+
+			.box:hover {
+				cursor: pointer;
+				box-shadow: 0px 5px 30px grey;
+				transition: 1s;
+				transform: translate(2px, -5px);
+				/* transform: scale(1.03); */
+			}
+
+			#left:hover {
+				cursor: pointer;
+				box-shadow: 0px 5px 30px grey;
+				transition: 1s;
+				transform: translate(6px, -5px);
+			}
+
+			.b01,
+			.b02 {
+				text-align: center;
+				font-weight: bolder;
+				letter-spacing: 0.1em;
+			}
+
+			.b03 {
+				color: #8076a3;
+				display: inline-block;
+			}
+
+			/* 豆瓣评分 */
+			#douban {
+				position: relative;
+				width: 100%;
+				height: 870px;
+				background-color: #d8e3e7;
+			}
+
+			#douban_left {
+				font-size: 30px;
+				display: inline-block;
+				position: absolute;
+				margin-left: 20px;
+				font-weight: bolder;
+				margin-top: 5px;
+			}
+
+			#a02 {
+				font-size: 16px;
+				margin-top: 5px;
+			}
+
+			#a03 {
+				width: 60px;
+				height: 30px;
+				background-color: rgba(249, 221, 103, 0.6);
+				display: inline-block;
+				font-size: 16px;
+				text-align: center;
+				line-height: 30px;
+			}
+
+			#a04 {
+				margin-top: 30px;
+				width: 180px;
+				height: 30px;
+				font-size: 16px;
+				line-height: 30px;
+				margin-left: -10px;
+				background-color: rgba(251, 185, 41, 0.8);
+				display: inline-block;
+				text-align: center;
+			}
+
+			#a05 {
+				font-size: 13px;
+				color: whitesmoke;
+			}
+
+			#a06,
+			#a07,
+			#a08 {
+				display: inline-block;
+			}
+
+			#a06 {
+				width: 200px;
+				height: 30px;
+				background-color: whitesmoke;
+				font-size: 20px;
+				border-radius: 5px;
+				text-align: center;
+				line-height: 30px;
+			}
+
+			#a07 {
+				width: 200px;
+				height: 30px;
+				background-color: whitesmoke;
+				font-size: 20px;
+				border-radius: 5px;
+				text-align: center;
+				line-height: 30px;
+			}
+
+			#a08 {
+				width: 200px;
+				height: 30px;
+				background-color: whitesmoke;
+				font-size: 20px;
+				border-radius: 5px;
+				text-align: center;
+				line-height: 30px;
+			}
+
+			a {
+				text-decoration: underline;
+				color: #f0f5e5;
+			}
+
+			/* 			#extra1:hover::after {
+				content: '动向阿走搭话，并且向阿走介绍了他所居住的名为竹青庄的公寓。就这样，阿走在半推半就之下成为了竹青庄的第10名住户。虽然日常打打闹闹但相互非常信赖的城太郎兄弟、被称之为神童，但阿走却觉得他有些古怪的杉山高志（内山昂辉 配音）、热衷于看电视猜谜节目的坂口洋平（北泽力 配音）、性格轻浮却异常讨厌烟味的高材生岩仓雪彦（兴津和幸 配音），和阿走共享着这幢破旧的公寓的，是这些性格稀奇古怪的人们。';
+				font-size: 16px;
+				font-weight: none;
+			} */
+			#extra {
+				cursor: pointer;
+			}
+
+			#a09 {
+				height: 110px;
+			}
+
+			#video1 {
+				width: 100%;
+				height: 500px;
+				position: inherit;
+			}
+
+			#video {
+				width: 800px;
+				margin: 0px auto;
+				height: 200px;
+			}
+
+
+			#changpinji {
+				width: 250px;
+				height: 250px;
+				/* background: url(../photo/yinhui.jpeg); */
+				/* background-color: #cfccc9; */
+				background-color: #b2bbbe;
+				position: absolute;
+				right: 45px;
+				bottom: 10px;
+				border-radius: 20px;
+			}
+
+			#big_yuan {
+				background: url(../photo/yuan1.jpg);
+				background-size: 120% auto;
+				background-repeat: no-repeat;
+				background-position: center;
+				border-radius: 50%;
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				right: 70px;
+				bottom: 30px;
+			}
+
+			#yuan {
+				background: url(../photo/yuan.jpg);
+				background-repeat: no-repeat;
+				background-size: cover;
+				height: 130px;
+				border-radius: 50%;
+				width: 130px;
+				position: absolute;
+				right: 34px;
+				bottom: 33px;
+				transform: rotate(270deg);
+				z-index: 1;
+			}
+
+			#contrl {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				right: 145px;
+				bottom: 98px;
+				z-index: 2;
+			}
+
+			#contrl img {
+				height: 100%;
+				width: 100%;
+			}
+
+			#contrl div {
+				height: 100%;
+				width: 100%;
+			}
+
+			/* 			#yuan:hover {
+				transform: rotate(8000deg);
+				transition: 600s;
+			}
+
+			#big_yuan:hover {
+				transform: rotate(8000deg);
+				transition: 600s;
+			} */
+
+			.text {
+				width: 100%;
+				height: 40px;
+				border-bottom: solid 1.5px #29b7cb;
+				letter-spacing: 0.4em;
+				font-size: 30px;
+				color: rgba(81, 196, 211, 0.9);
+				margin-bottom: 1px;
+			}
+
+			hr {
+				color: rgba(81, 196, 211, 0.6);
+			}
+
+			a {
+				text-decoration: none;
+				color: rgba(81, 196, 211, 0.9);
+			}
+
+			.text:hover {
+				color: rgba(81, 196, 211, 0.7);
+				cursor: pointer;
+			}
+
+			#tradition {
+				background-color: #f2e7e5;
+				height: 690px;
+				width: 1690px;
+				/* 11 */
+			}
+
+			#bottom {
+				width: 100%;
+				height: 180px;
+				margin-top: -160.8px;
+				background-color: #f2e7e5;
+				text-align: center;
+			}
+
+			#ccc {
+				width: 100%;
+				height: 100%;
+			}
+
+			#zly {
+				font-family: 行楷-简;
+				font-size: 100px;
+				letter-spacing: 0.2em;
+				transform: translate(-12px, 0px)
+			}
+
+			#run {
+				width: 100%;
+				height: 870px;
+				margin-top: 30px;
+				transform: translate(0px, 150px);
+				background: url(../photo/箱根.JPG);
+				background-size: cover;
+				background-repeat: no-repeat;
+				opacity: 0.99;
+			}
+
+			#footer {
+				width: 100%;
+				height: 310px;
+				transform: translate(0px, 150px);
+				/* background-color: rgba(138, 188, 209, 0.3); */
+				background-color: rgba(143, 178, 201, 0.4);
+				position: inherit;
+			}
+
+			#d01 {
+				position: absolute;
+				left: 290px;
+				top: 60px;
+			}
+
+			#d02 {
+				margin-top: 5px;
+				font-size: 36px;
+				letter-spacing: 0.04em;
+			}
+
+			#d03 {
+				margin-top: 20px;
+			}
+
+			#d04 {
+				height: 2em;
+				width: 5em;
+				margin-top: 40px;
+				font-size: 22px;
+				background-color: #51c4d3;
+				text-align: center;
+				border-radius: 10px;
+				line-height: 2em;
+			}
+
+			#d05 {
+				margin-top: 10px;
+			}
+
+			#d06 {
+				width: 600px;
+				height: 225px;
+				position: absolute;
+				left: 750px;
+				top: 60px;
+				background-color: #c6e6e8;
+				transform: translate(-40px, 0px)
+			}
+
+			#d07 {
+				/* background-color: #c6e6e8; */
+				background-color: #eef7f2;
+				width: 4em;
+				height: 3em;
+				text-align: center;
+				line-height: 3em;
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+			}
+
+			/* 箱根驿传 */
+			#xianggenlogo {
+				width: 200px;
+				height: 225px;
+				margin-left: 2px;
+			}
+
+			#xianggenlogo img {
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+			}
+
+			#xianggen {
+				width: 1500px;
+				height: 590px;
+				position: absolute;
+				bottom: 0px;
+				left: 235px;
+				padding: 15px;
+			}
+
+			#shiqu,
+			#compate {
+				display: inline-block;
+				vertical-align: top;
+			}
+
+			#shiqu {
+				/* background: rgba(198, 230, 232, 1); */
+				/* background: rgba(227, 180, 184, 0.8); */
+				background-color: rgba(204, 204, 214, 0.7);
+				width: 400px;
+				height: 600px;
+				list-style: none;
+				border-radius: 2px;
+				margin-top: -25px;
+			}
+
+			#shiqu li {
+				font-size: 35px;
+				letter-spacing: 0.2em;
+				/* font-weight: bold; */
+				cursor: pointer;
+				/* background: rgba(238, 184, 195, 0.7); */
+				margin-top: 8px;
+			}
+
+			li.on {
+				font-weight: bold;
+				background-color: rgba(204, 204, 214, 1);
+				;
+				border-bottom: 1.8px solid #e3b4b8;
+			}
+
+			#compate {
+				width: 800px;
+				height: 600px;
+				position: absolute;
+				/* margin-left: -0px; */
+				float: right;
+				margin-top: -25px;
+			}
+
+			.com1 {
+				width: 100%;
+				height: 100%;
+				display: none;
+				border-radius: 2px;
+			}
+
+			#compate .com1 img {
+				width: 100%;
+				height: 100%;
+				border-radius: 2px;
+				opacity: 0.9;
+			}
+
+			#textt {
+				display: none;
+			}
+			
+			
+			
+			/* 网页底部 */
+			.footer-top {
+			    display: flex;
+			    justify-content: space-between;
+			    align-items: center;
+			    padding: 20px 0;
+			    background-color: rgba(143, 178, 201, 0.4);
+			}
+			
+			.social-icons a {
+			    margin: 0 10px;
+			    color: #333;
+			    font-size: 24px;
+			}
+			
+			.subscribe-form input {
+			    padding: 10px;
+			    margin-right: 10px;
+			    width: 220px;
+			}
+			
+			.subscribe-form button {
+			    padding: 10px 20px;
+			    background-color: rgba(143, 178, 201, 0.4);
+			    color: white;
+			    border: none;
+			    cursor: pointer;
+			}
+			
+			.footer-middle {
+			    text-align: center;
+			    padding: 20px 0;
+			    background-color: rgba(143, 178, 201, 0.4);
+			}
+			
+			.footer-links a {
+			    margin: 0 15px;
+			    color: #333;
+			    text-decoration: none;
+			}
+			
+			.copyright {
+			    color: #666;
+			}
+			
+			.footer-bottom {
+			    display: flex;
+			    justify-content: space-between;
+			    align-items: center;
+			    padding: 10px 0;
+			    background-color: rgba(143, 178, 201, 0.4);
+			}
+			
+			.footer-bottom p a {
+			    margin: 0 5px;
+			    color: #333;
+			    text-decoration: none;
+			}
+			
+			button {
+			    padding: 10px 20px;
+			    background-color: #51c4d3;
+			    color: white;
+			    border: none;
+			    cursor: pointer;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<header id="bk4">
+			<nav>
+				<div id="logo">
+					<img src="../photo/logo.JPG" id="logo" alt="" />
+				</div>
+				<div class="li1">
+					<a href="#c01">
+						<p class="li2">强风吹拂</p>
+					</a>
+				</div>
+				<div class="li1">
+					<a href="#c02">
+						<p class="li2">人物介绍</p>
+					</a>
+				</div>
+				<div class="li1">
+					<a href="#c03">
+						<p class="li2">箱根驿传</p>
+					</a>
+				</div>
+				<div class="li1">
+					<a href="#c04">
+						<p class="li2" id="book1">&lt;书籍介绍&gt;</p>
+					</a>
+				</div>
+				<!-- 登录模态窗口 -->
+				<div id="loginModal" class="modal">
+				  <div class="modal-content">
+				    <span class="close">&times;</span>
+				    <form id="loginForm">
+				      <label for="username"><b>用户名</b></label>
+				      <input type="text" placeholder="输入用户名" name="username" required>
+				
+				      <label for="password"><b>密码</b></label>
+				      <input type="password" placeholder="输入密码" name="password" required>
+				
+				      <button type="submit">登录</button>
+				    </form>
+				  </div>
+				</div>
+				
+				<!-- 登录按钮，用于触发模态窗口 -->
+				<button id="loginBtn">登录</button>
+				</nav>
+				
+			<div id="content">
+				<ul id="performance">
+					<li><img src="../强风吹拂图片/640 (6).jfif"></li>
+					<li><img src="../强风吹拂图片/exercise.jpg"></li>
+					<li><img src="../强风吹拂图片/640 (5).jfif"></li>
+					<li><img src="../强风吹拂图片/640 (1).webp"></li>
+					<li><img src="../强风吹拂图片/640 (7).jfif"></li>
+					<li><img src="../强风吹拂图片/all.jpg"></li>
+				</ul>
+				<div id="left1"><span>&lt;</span></div>
+				<div id="right1"><span>&gt;</span></div>
+			</div>
+		</header>
+		<main>
+
+			<!-- 豆瓣评分 -->
+			<div id="douban">
+				<div class="text">
+					<b id="c01">强风吹拂</b>
+				</div>
+				<img src="../photo/豆瓣.JPG" id="photo1" alt="" width="150px" height="200px" />
+				<aside id="douban_left">
+					<div id="a01">强风吹拂</div>
+					<div id="a02">風が強く吹いている(2018)</div>
+					<div id="a03">NO.13</div>
+					<div id="a04">豆瓣高分动画剧集榜&gt;</div>
+					<div id="a05">日本/动画 运动/2018-10-02(日本)首播/共23集/单集片长23分钟</div>
+					<div id="a06" class="">想看</div>
+					<div id="a07">在看</div>
+					<div id="a08">看过</div>
+				</aside>
+				<div id="a09">
+					<p>剧情简介：</p>
+					<p id="ppp">
+						藏原走（大冢刚央
+						配音）是一名性格非常内向的大学一年级男生，不善言辞的他总是习惯用跑步来抒发内心里的情感波动。一天深夜，正在跑步的阿走遇见了名叫清濑灰二（丰永利行配音）的男子，这个散发着独特魅力的男人主<b
+							id="extra">...展开</b>
+					</p>
+					<p id="textt">
+						动向阿走搭话，并且向阿走介绍了他所居住的名为竹青庄的公寓。就这样，阿走在半推半就之下成为了竹青庄的第10名住户。虽然日常打打闹闹但相互非常信赖的城太郎兄弟、被称之为神童，但阿走却觉得他有些古怪的杉山高志（内山昂辉配音）、热衷于看电视猜谜节目的坂口洋平（北泽力配音）、性格轻浮却异常讨厌烟味的高材生岩仓雪彦（兴津和幸
+						配音），和阿走共享着这幢破旧的公寓的，是这些性格稀奇古怪的人们。</p>
+				</div>
+				<div id="video1">
+					<div id="video">
+						<video src="../视频素材/强风吹拂.MP4" controls poster="../photo/poster.JPG" width="800px"
+							height="480px"></video>
+						<div id="changpinji"></div>
+						<div id="contrl">
+							<div id="begin"><img src="../photo/begin.png" alt=""></div>
+						</div>
+						<div id="big_yuan">
+							<div id="yuan"></div>
+						</div>
+						<audio src="../music.mp3" id="mmusic"></audio>
+					</div>
+				</div>
+			</div>
+
+			<!-- 人物介绍 -->
+			<div id="tradition">
+				<div class="text">
+					<b id="c02">人物介绍</b>
+				</div>
+				<div id="left">
+					<img id="im1" src="../photo/10人.JPG" alt="" />
+				</div>
+				<div id="right">
+					<div id="line1">
+						<div class="box">
+							<img src="../photo/藏原走（阿走）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">藏原走</p>(阿走)
+							</div>
+							<div class="b02">配音：<p class="b03">大冢刚央</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/城太郎（城太）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">城太郎</p>(城太)
+							</div>
+							<div class="b02">配音：<p class="b03">榎木淳弥</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/杉山高志（神童）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">杉山高志</p>(神童)
+							</div>
+							<div class="b02">配音：<p class="b03">内山昂辉</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/坂口洋平（KING）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">坂口洋平</p>(KING)
+							</div>
+							<div class="b02">配音：<p class="b03">北泽力</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/岩仓雪彦（阿雪）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">岩仓雪彦</p>(阿雪)
+							</div>
+							<div class="b02">配音：<p class="b03">兴津和幸</p>
+							</div>
+						</div>
+					</div>
+					<div id="line2">
+						<div class="box">
+							<img src="../photo/清濑灰二（灰二）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">清濑灰二</p>(灰二)
+							</div>
+							<div class="b02">配音：<p class="b03">丰永利行</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/城次郎（城次）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">城次郎</p>(城次)
+							</div>
+							<div class="b02">配音：<p class="b03">上村祐翔</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/平田彰宏（尼古）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">平田彰宏</p>(尼古)
+							</div>
+							<div class="b02">配音：<p class="b03">星野贵纪</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/柏崎茜（王子）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">柏崎茜</p>(王子)
+							</div>
+							<div class="b02">配音：<p class="b03">入野自由</p>
+							</div>
+						</div>
+						<div class="box">
+							<img src="../photo/穆萨.卡马拉（穆萨）.JPG" alt="" width="150px" />
+							<div class="b01">
+								<p class="b03">穆萨.卡马拉</p>(穆萨)
+							</div>
+							<div class="b02">配音：<p class="b03">株元英彰</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="bottom">
+					<!-- <img src="../photo/bottom1.jpeg" alt="" id="ccc"/> -->
+					<p id="zly">纵有疾风起，人生不言弃</p>
+				</div>
+			</div>
+
+			<!-- 箱根驿传 -->
+			<div id="run">
+				<div class="text">
+					<b id="c03">箱根驿传</b>
+				</div>
+				<div id="xianggenlogo"><img src="../photo/xg1.jpg" alt=""></div>
+				<div id="xianggen">
+					<ul id="shiqu">
+						<li class="">一区 启程之峰</li>
+						<li class="">二区 风驰电掣</li>
+						<li class="">三区 山道挑战</li>
+						<li class="">四区 毅力之坡</li>
+						<li class="">五区 逆风飞扬</li>
+						<li class="">六区 力量之巅</li>
+						<li class="">七区 速度之谷</li>
+						<li class="">八区 耐力之和</li>
+						<li class="">九区 决胜之岭</li>
+						<li class="">十区 荣耀之巅</li>
+					</ul>
+					<div id="compate">
+						<div class="com1"><img src="../tenArea/one（王子）.jpg"></div>
+						<div class="com1"><img src="../tenArea/two(穆萨).jpg"></div>
+						<div class="com1"><img src="../tenArea/three(诚太).jpg"></div>
+						<div class="com1"><img src="../tenArea/four（诚次）.jpg"></div>
+						<div class="com1"><img src="../tenArea/five（神童）.jpg"></div>
+						<div class="com1"><img src="../tenArea/six（阿雪）.jpg"></div>
+						<div class="com1"><img src="../tenArea/seven（尼古）.jpg"></div>
+						<div class="com1"><img src="../tenArea/eight（king）.jpg"></div>
+						<div class="com1"><img src="../tenArea/nine(阿走).jpg"></div>
+						<div class="com1"><img src="../tenArea/ten（灰二）.jpg"></div>
+					</div>
+				</div>
+		</main>
+		<footer id="footer">
+			<!-- 书籍介绍 -->
+			<div>
+				<div class="text">
+					<b id="c04">&lt;书籍介绍&gt;</b>
+				</div>
+				<div>
+					<img src="../photo/book3.jpg" alt="" width="238px" height="242px" />
+				</div>
+				<div id="d01">
+					<div id="d02">
+						<p>强风吹拂 （2023版本）</p>
+					</div>
+					<div id="d03">
+						<p>三浦紫苑</p>
+					</div>
+					<div id="d05">
+						<b>读书推荐值92.5%</b>
+					</div>
+					<div id="d04">开始阅读</div>
+				</div>
+				<div id="d06">
+					<p>
+					<p style="font-size: 20px; font-family: 行楷-简; font-weight: bolder;">书籍简介:</p>
+					<b
+						style="font-family: 行楷-简; line-height: 1.8em;">三浦紫苑的同名小说《强风吹拂》，有如沧海遗珠。这部关于长跑的半年番，开播之初就口碑爆棚。直至今天，它依旧保持着极为优异的口碑，豆瓣评分高达9.6，以及B站超过8万人打出的9.9的逆天分数。作为三浦紫苑第二部动画化的作品，《强风吹拂》有着与之前《编舟记》相似的基因和境遇。它们都烙印着作家鲜明的个人风格，在平缓冷静的叙述中流淌出涤荡人心的力量，内里传达的对于某个目标始终如一的坚持也如出一辙。而且，它们都是有口皆碑的冷门佳作。</b>
+				</div>
+				<br />
+				<hr />
+			</div>
+			
+			<!-- 网页底部 -->
+			    <!-- 底部顶部区域：社交媒体和订阅表单 -->
+			    <div class="footer-top">
+			        <div class="social-icons">
+			            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+			            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+			            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+			        </div>
+			        <div class="subscribe-form">
+			            <input type="email" placeholder="订阅我们的新闻通讯" id="subscribeEmail">
+			            <button onclick="subscribe()">订阅</button>
+			        </div>
+			    </div>
+			    <!-- 底部中部区域：链接和版权信息 -->
+			    <div class="footer-middle">
+			        <div class="footer-links">
+			            <a href="#">关于我们</a>
+			            <a href="#">服务条款</a>
+			            <a href="#">隐私政策</a>
+			        </div>
+			        <p class="copyright">&copy; 2024 强风吹拂. All rights reserved.</p>
+			    </div>
+			    <!-- 底部底部区域：联系方式和返回顶部按钮 -->
+			    <div class="footer-bottom">
+			        <p>联系方式: <a href="mailto:contact@strongbreeze.com">contact@strongbreeze.com</a> | <a href="tel:+123456789">+123456789</a></p>
+			        <button onclick="goToTop()">返回顶部</button>
+			    </div>
+				
+			</footer>
+		
+		
+		<script type="text/javascript">
+			// 幻灯片代码定义部分
+			var oLeft1=document.getElementById("left1")
+			var oRight1=document.getElementById("right1")
+			var oPerformance=document.getElementById("performance")
+			var oLii=oPerformance.getElementsByTagName("li")
+			var timer=setInterval(rightPlay,3000)
+			let n=0
+			
+			var oBan = document.getElementById("shiqu")
+			var aBtn = oBan.getElementsByTagName("li")
+			var aDdd = document.getElementById("compate")
+			var aDiv = aDdd.getElementsByTagName("div")
+			var oBook = document.getElementById("d04")
+			var oMusic = document.getElementById("yuan")
+			var oMMusic = document.getElementById("contrl")
+			var oAudio = document.getElementById("mmusic")
+			var oExtra = document.getElementById("extra")
+			
+			
+			
+			// 获取模态窗口元素
+			var modal = document.getElementById("loginModal");
+			
+			// 获取打开模态窗口的按钮元素
+			var btn = document.getElementById("loginBtn");
+			
+			// 获取关闭模态窗口的<span>元素
+			var span = document.getElementsByClassName("close")[0];
+			
+			// 点击按钮打开模态窗口
+			btn.onclick = function() {
+			  modal.style.display = "block";
+			}
+			
+			// 点击<span> (x), 关闭模态窗口
+			span.onclick = function() {
+			  modal.style.display = "none";
+			}
+			
+			// 在用户点击模态窗口外部时，关闭它
+			window.onclick = function(event) {
+			  if (event.target == modal) {
+			    modal.style.display = "none";
+			  }
+			}
+			//幻灯片JavaScript代码实现部分
+			function rightPlay(){
+				n++
+				if(n>=oLii.length){
+					n=0
+				}
+				oPerformance.style.left =-1200 * n+'px';
+			}
+			oRight1.onclick=function(){
+				clearInterval(timer)
+				rightPlay()
+				timer=setInterval(rightPlay,3000)
+			}
+			
+			function leftPlay(){
+				n--
+				if(n<0){
+					n=oLii.length-1
+				}
+				oPerformance.style.left=-1200*n+'px'
+			}
+			oLeft1.onclick=function(){
+				clearInterval(timer)
+				leftPlay()
+				timer=setInterval(rightPlay,3000)
+			}
+			
+			window.onload = function() {
+				aBtn[0].className = 'on'
+				aDiv[0].style.display = 'block'
+				for (let i = 0; i < aBtn.length; i++) {
+					aBtn[i].onmouseover = function() {
+						for (let i = 0; i < aBtn.length; i++) {
+							aBtn[i].className = ''
+							aDiv[i].style.display = ''
+						}
+						this.className = 'on'
+						aDiv[i].style.display = 'block'
+					}
+				}
+			}
+			oBook.onclick = function() {
+				window.open(
+					'https://www.baidu.com/link?url=LlKBD5Z3KspfQyjawNYbEy2v1q0ZP4pGGXhkJfTbLBYg99L4SZKEIaY3ftqZMRpMJz-UOWfSbGkdAkiJEGLY6q&wd=&eqid=dc8964d8009a0ebb00000006675852a8'
+				)
+			}
+			oBook.onmouseover = function() {
+				oBook.style.fontSize = '23px'
+				oBook.style.cursor = 'pointer'
+			}
+			oBook.onmouseout = function() {
+				oBook.style.fontSize = '22px'
+			}
+			oMMusic.onclick = function() {
+				if (oAudio.paused) {
+					oAudio.play()
+					oMusic.style.transform = 'rotate(8000deg)'
+					oMusic.style.transition = '400s'
+					document.getElementById("begin").style.display = 'none'
+
+				} else {
+					oAudio.pause()
+					oMusic.style.transform = 'none'
+					document.getElementById("begin").style.display = 'block'
+				}
+			}
+			oExtra.onmouseover = function() {
+				document.getElementById("textt").style.display = 'block'
+
+			}
+			oExtra.onmouseout = function() {
+				document.getElementById("textt").style.display = 'none'
+			}
+			
+			// 网页底部
+			function subscribe() {
+			    var email = document.getElementById('subscribeEmail').value;
+			    // 这里可以添加发送订阅请求的代码
+			    alert('感谢订阅! 我们将发送最新资讯到您的邮箱：' + email);
+			}
+			
+			function goToTop() {
+			    window.scrollTo({top: 0, behavior: 'smooth'});
+			}
+
+		</script>
+	</body>
+</html>
